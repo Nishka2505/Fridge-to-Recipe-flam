@@ -55,7 +55,19 @@ An interactive, production-ready React app powered by a FastAPI Python backend a
    ```bash
    npm run dev
    ```
-   The application will run on `http://localhost:5173`. Open it in your browser.
+    The application will run on `http://localhost:5173`. Open it in your browser.
+
+### 3. Unified Vercel Deployment (Full Project)
+The project is configured for a unified deployment on Vercel. Both the React frontend and FastAPI Python backend run together as a single project on Vercel using serverless execution:
+
+1. Log in to [Vercel](https://vercel.com) using your GitHub account.
+2. Click **Add New** -> **Project** and import this repository.
+3. In the project configure settings:
+   - **Build Command**: `npm run build` (This triggers our root build script: `cd frontend && npm install && npm run build`)
+   - **Output Directory**: `frontend/dist`
+4. Under **Environment Variables**, add:
+   - `GROQ_API_KEY`: `<your_actual_groq_api_key>`
+5. Click **Deploy**. Vercel will automatically host the static React assets and compile the Python backend under Vercel Serverless Functions!
 
 ---
 
